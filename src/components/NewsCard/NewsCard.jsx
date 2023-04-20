@@ -30,7 +30,7 @@ const CardArea = styled.div`
     font-size: 0.875rem;
     line-height: 1.25rem;
   }
-  
+
   .actions {
     display: flex;
     justify-content: space-between; /* or space-around */
