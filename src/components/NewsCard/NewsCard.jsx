@@ -1,15 +1,17 @@
+import { Card, Button } from "react-bootstrap";
 import styled from "styled-components";
 import newsImg from "../../assets/news.jpeg";
 import { Link } from "react-router-dom";
 
-const CardArea = styled.div`
-  flex-grow: 1;
+const CardArea = styled(Card)`
+  height: 500px;
   margin-left: 0.75rem;
   margin-right: 0.75rem;
   border-radius: 0.5rem;
   background-color: #fff;
   box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
   border: 1px solid transparent;
+  background-color: #F3F4F6;
   .content {
     padding: 1.1rem;
     display: flex;
@@ -29,13 +31,6 @@ const CardArea = styled.div`
     color: #6b7280;
     font-size: 0.875rem;
     line-height: 1.25rem;
-  }
-
-  .actions {
-    display: flex;
-    justify-content: space-between; /* or space-around */
-    margin-top: 1rem;
-    gap: 0.5rem;
   }
 
   .link {
@@ -58,6 +53,7 @@ const CardArea = styled.div`
     transform: translateX(4px);
   }
 `;
+
 const CardRow = styled.div`
   display: flex;
   justify-content: space-between;
@@ -73,23 +69,29 @@ const NewsCard = ({ title, urlToImage, content, id }) => {
   return (
     <CardRow>
       <CardArea>
-        <img src={urlToImage ? urlToImage : newsImg} alt="img-news" />
-        <div className="content">
-          <span className="title">{title}</span>
-          {content && <p className="desc">{content.slice(0, 120)}</p>}
-          <div className="actions">
+        <Card.Img
+          variant="top"
+          src={urlToImage ? urlToImage : newsImg}
+          alt="img-news"
+        />
+        <Card.Body className="content">
+          <Card.Title className="title">{title}</Card.Title>
+          {content && (
+            <Card.Text className="desc">{content.slice(0, 120)}</Card.Text>
+          )}
+        </Card.Body>
+        <Card.Footer>
+          <div className="actions d-flex justify-content-between">
             <Link
               to={{
                 pathname: `/articles/${id}`,
                 state: { article: { title, content, urlToImage } },
               }}
-              className="link"
             >
-              Find out more
-              <span aria-hidden="true">➛</span>
+              <Button variant="primary">Read more</Button>
             </Link>
           </div>
-        </div>
+        </Card.Footer>
       </CardArea>
     </CardRow>
   );
