@@ -52,7 +52,7 @@ const ArticlePage = () => {
             <>
               <h2>{article.title}</h2>
               {article.urlToImage && (
-                <img src={article.urlToImage} alt="article" />
+                <img src={article.urlToImage} style={{width: '100%'}} alt="article" />
               )}
               <p>{article.content}</p>
             </>
