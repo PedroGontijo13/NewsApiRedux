@@ -11,7 +11,7 @@ const FooterContainer = styled.footer`
 `;
 
 const FooterText = styled.p`
-  margin: 0;
+  margin: 10px;
 
   @media (max-width: 767px) {
     &:first-child {

@@ -30,20 +30,6 @@ const Content = styled.div`
   margin: 0 auto;
 `;
 
-const Subtitle = styled.h2`
-  font-size: 1.8rem;
-  margin-bottom: 20px;
-  text-align: center;
-  color: #333;
-`;
-
-const Link = styled.a`
-  color: #0077cc;
-  text-decoration: none;
-  &:hover {
-    text-decoration: underline;
-  }
-`;
 const About = () => {
   return (
     <div>

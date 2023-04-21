@@ -61,17 +61,9 @@ const ArticlePage = () => {
           )}
         </ArticleCard>
       </ArticleContainer>
-      <FooterWrapper>
-        <Footer />
-      </FooterWrapper>
+      <Footer />
     </>
   );
 };
-
-const FooterWrapper = styled.div`
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-`;
 
 export default ArticlePage;
