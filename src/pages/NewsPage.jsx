@@ -5,6 +5,7 @@ import NewsCard from "../components/NewsCard/NewsCard";
 import { useEffect } from "react";
 import NavBar from "../components/Nav/NavBar";
 import Footer from "../components/Footer/Footer";
+import { Link } from "react-router-dom";
 
 const NewsContainer = styled.div`
   margin-top: 20px;
@@ -36,17 +37,16 @@ export default function NewsPage() {
       <NavBar />
       <NewsContainer>
         {articles &&
-          articles
-            .slice(0, 18)
-            .map((article, index) => (
+          articles.slice(0, 18).map((article, index) => (
+            <div key={index}>
               <NewsCard
-                key={index}
                 title={article.title}
                 content={article.content}
                 urlToImage={article.urlToImage}
                 id={article.source.id || index}
               />
-            ))}
+            </div>
+          ))}
       </NewsContainer>
       <Footer />
     </div>
